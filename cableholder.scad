@@ -1,6 +1,6 @@
 /**********************************
-	File: cableholder.scad
-	Revision: 0.2 (10/7/2012)
+	File: CableHolder.scad
+	Revision: 0.2 (1/5/2013)
 	OpenSCAD version by:
 	Michael Williams (gannon)
 	mswillia@mtu.edu

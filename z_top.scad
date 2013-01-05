@@ -1,5 +1,5 @@
 /**********************************
-	File: z_top.scad
+	File: Z_Top.scad
 	Revision: 0.2 (10/7/2012)
 	OpenSCAD version by:
 	Michael Williams (gannon)

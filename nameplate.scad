@@ -1,6 +1,6 @@
 /**********************************
-	File: nameplate.scad
-	Revision: 0.1 (10/7/2012)
+	File: NamePlate.scad
+	Revision: 0.2 (1/5/2012)
 	OpenSCAD version by:
 	Michael Williams (gannon)
 	mswillia@mtu.edu
@@ -18,7 +18,7 @@ thickness=4;
 corner_radius=20;
 
 //Holes
-radius=2.7;
+radius=3;
 
 /**********************************
 		END CONFIGURATION

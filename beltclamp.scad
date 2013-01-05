@@ -1,6 +1,6 @@
 /**********************************
-	File: beltclamp.scad
-	Revision: 0.2 (10/7/2012)
+	File: BeltClamp.scad
+	Revision: 0.3 (1/5/2013)
 	OpenSCAD version by:
 	Michael Williams (gannon)
 	mswillia@mtu.edu
@@ -17,7 +17,7 @@ height=10;
 
 //Hole configuration
 hole_spacing=20;
-hole_radius=1.9;
+hole_radius=2;
 
 //Belt configuration
 belt_width=8;
