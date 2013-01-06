@@ -8,3 +8,23 @@ Z_Top is old
 FrameConnector is old
 Y_FrameConnector is old
 X_SingleExtruderMount is old
+
+==UNIMPLENTED==
+Bearing_Holder
+ElectronicEnclosureBottom
+ElectronicEnclosureTop
+ElectronicEnclosureTopBlank
+FilamentGuide
+X_BearingForSpring
+X_Carriage
+X_Carriage_QuickGuide
+X_DremelMultiProMount
+X_MotorForSpring
+X_QuickMountBlank
+X_SingleExtruderMountOffset
+X_SingleExtruderShield
+Y_Bearing-4mmoffset
+Y_BeltMount
+Y_Motor
+Z_MotorMount
+Z_NutSpring
