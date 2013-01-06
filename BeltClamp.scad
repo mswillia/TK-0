@@ -1,6 +1,6 @@
 /**********************************
 	File: BeltClamp.scad
-	Revision: 0.3 (1/5/2013)
+	Revision: 0.4 (1/5/2013)
 	OpenSCAD version by:
 	Michael Williams (gannon)
 	mswillia@mtu.edu
@@ -17,7 +17,6 @@ height=10;
 
 //Hole configuration
 hole_spacing=20;
-hole_radius=2;
 
 //Belt configuration
 belt_width=8;
@@ -33,8 +32,8 @@ difference() {
 	cube([width,height,thickness]);
 
 	//Drill the holes
-	drill(((width-hole_spacing)/2),(height/2),hole_radius,thickness+overdrill*2);
-	drill(width-((width-hole_spacing)/2),(height/2),hole_radius,thickness+overdrill*2);
+	drill(((width-hole_spacing)/2),(height/2),screw_b_diameter/2,thickness+overdrill*2);
+	drill(width-((width-hole_spacing)/2),(height/2),screw_b_diameter/2,thickness+overdrill*2);
 
 	//Make the belt cutout
 	translate([((width-belt_width)/2),-overdrill,thickness-belt_depth])

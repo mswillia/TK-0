@@ -1,6 +1,6 @@
 /**********************************
 	File: CableHolder.scad
-	Revision: 0.2 (1/5/2013)
+	Revision: 0.3 (1/5/2013)
 	OpenSCAD version by:
 	Michael Williams (gannon)
 	mswillia@mtu.edu
@@ -40,5 +40,18 @@ difference() {
 	//This is actually slightly trapezoidal in the sketchup
 	//4.8mm inside and 5.0mm outside...leaving it square for now
 	translate([-opening/2,-(radius+wall_thickness+overdrill),-overdrill])
-		cube([opening,radius+wall_thickness+overdrill,thickness+overdrill*2]);
+		union() {
+			cube([opening,radius+wall_thickness+overdrill,thickness+overdrill*2]);
+
+			translate([-1.5,2.5,-overdrill]) difference() {
+				translate([0,-3,overdrill])
+					cube([3,3,thickness+overdrill*2]);
+				cylinder(r=1.5,h=thickness+overdrill*4,$fn=100);
+			}
+			translate([opening+1.5,2.5,-overdrill]) difference() {
+				translate([-3,-3,overdrill])
+					cube([3,3,thickness+overdrill*2]);
+				cylinder(r=1.5,h=thickness+overdrill*4,$fn=100);
+			}
+		}
 }
