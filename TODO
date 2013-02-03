@@ -8,10 +8,11 @@ GlassFinger is ready for use
 X_BearingForSpring is ready for use
 Y_FrameConnectorA is ready for use
 Y_FrameConnectorB is ready for use
+X_Carriage_QuickGuide is ready for use
+Z_Top is ready for use
 NamePlate needs text still
 
 ==TODO==
-Z_Top is old
 X_SingleExtruderMount is old
 
 ==UNIMPLENTED==
@@ -19,7 +20,6 @@ ElectronicEnclosureBottom
 ElectronicEnclosureTop
 ElectronicEnclosureTopBlank
 X_Carriage
-X_Carriage_QuickGuide
 X_DremelMultiProMount
 X_MotorForSpring
 X_QuickMountBlank

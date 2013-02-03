@@ -1,6 +1,6 @@
 /**********************************
 	File: functions.scad
-	Revision: 0.1 (10/7/2012)
+	Revision: 0.2 (2/3/2012)
 	OpenSCAD version by:
 	Michael Williams (gannon)
 	mswillia@mtu.edu
@@ -21,6 +21,14 @@ module roundedcorner(radius,thickness,angle) {
 					cube([radius+overdrill,radius+overdrill,thickness+overdrill*2]);
 				cylinder(r=radius,h=thickness+overdrill*2, $fn=100);
 			}
+}
+
+module Lbracket(height,width,length,thickness) {
+	difference() {
+		cube([height+thickness,width+thickness,length]);
+		translate([thickness,thickness,-overdrill])
+			cube([width+thickness,height+thickness,length+overdrill*2]);
+	}
 }
 
 //Usage: points is an array consisting of elements
