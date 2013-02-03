@@ -1,21 +1,23 @@
 ==UPDATED==
 BeltClamp is ready for use
-CableHolder has some small changes to be done
+FrameConnector is ready for use
+CableHolder is ready for use
+Bearing_Holder is ready for use
+FilamentGuide is ready for use
+GlassFinger is ready for use
+X_BearingForSpring is ready for use
+Y_FrameConnectorA is ready for use
+Y_FrameConnectorB is ready for use
 NamePlate needs text still
 
 ==TODO==
 Z_Top is old
-FrameConnector is old
-Y_FrameConnector is old
 X_SingleExtruderMount is old
 
 ==UNIMPLENTED==
-Bearing_Holder
 ElectronicEnclosureBottom
 ElectronicEnclosureTop
 ElectronicEnclosureTopBlank
-FilamentGuide
-X_BearingForSpring
 X_Carriage
 X_Carriage_QuickGuide
 X_DremelMultiProMount

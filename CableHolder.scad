@@ -1,6 +1,6 @@
 /**********************************
 	File: CableHolder.scad
-	Revision: 0.3 (1/5/2013)
+	Revision: 0.4 (2/2/2013)
 	OpenSCAD version by:
 	Michael Williams (gannon)
 	mswillia@mtu.edu
@@ -16,6 +16,8 @@ wall_thickness=3.4;
 radius=4.8;
 opening=4.8;
 
+ratio = (extrusion_width/20);
+
 /**********************************
 		END CONFIGURATION
 **********************************/
@@ -24,14 +26,15 @@ difference() {
 	//Make our base unit
 	union() {
 		cylinder(r=radius+wall_thickness,h=thickness,$fn=100);
-		translate([-2.7,radius+5,0])
-			cube([5.4,2.2,thickness]);
-		translate([0,radius+7.2,0])
+		translate([-2.7*ratio,radius+(4),0])
+			cube([extrusion_opening,extrusion_wall,thickness]);
+		translate([0,radius+extrusion_wall+3,0])
 			linear_extrude(height=thickness)
-				polygon(points=[[-5,0],[-3,3],[3,3],[5,0]]);
-		translate([0,radius-0.7,0])
+				polygon(points=[[-extrusion_width/4,0],[-(extrusion_width/2)*0.3,3],[(extrusion_width/2)*0.3,3],[extrusion_width/4,0]]);
+		translate([0,radius-(0.7),0])
 			linear_extrude(height=thickness)
-				polygon(points=[[-7.1,0],[-10,2.9],[-10,5.7],[10,5.7],[10,2.9],[7.1,0]]);
+				polygon(points=[[-7.1,0],[-extrusion_width/2,2.9],[-extrusion_width/2,4.7],[extrusion_width/2,4.7],[extrusion_width/2,2.9],[7.1,0]]);
+	
 	}
 
 	//Drill the hole

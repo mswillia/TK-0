@@ -19,7 +19,7 @@ module roundedcorner(radius,thickness,angle) {
 			difference() {
 				translate([-overdrill,-overdrill,0])
 					cube([radius+overdrill,radius+overdrill,thickness+overdrill*2]);
-				cylinder(r=radius,h=thickness+overdrill*2);
+				cylinder(r=radius,h=thickness+overdrill*2, $fn=100);
 			}
 }
 

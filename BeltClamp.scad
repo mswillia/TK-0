@@ -1,6 +1,6 @@
 /**********************************
 	File: BeltClamp.scad
-	Revision: 0.4 (1/5/2013)
+	Revision: 0.5 (2/2/2013)
 	OpenSCAD version by:
 	Michael Williams (gannon)
 	mswillia@mtu.edu
@@ -11,16 +11,12 @@ use <functions.scad>
 		CONFIGURATION
 **********************************/
 //Base size
-thickness=3.5;
-width=28;
+thickness=2.5+belt_depth;
+width=20+belt_width;
 height=10;
 
 //Hole configuration
-hole_spacing=20;
-
-//Belt configuration
-belt_width=8;
-belt_depth=1;
+hole_spacing=width-(screw_b_diameter*2);
 
 /**********************************
 		END CONFIGURATION

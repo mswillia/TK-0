@@ -1,6 +1,6 @@
 /**********************************
 	File: FrameConnecters.scad
-	Revision: 0.2 (10/7/2012)
+	Revision: 0.3 (2/2/2013)
 	OpenSCAD version by:
 	Michael Williams (gannon)
 	mswillia@mtu.edu
@@ -11,29 +11,49 @@ use <functions.scad>
 		CONFIGURATION
 **********************************/
 //Base size
-side=60;
-flat=20;
-thickness=4;
+ratio = (extrusion_width/20);
+side = extrusion_width * 3.5;
+outer_radius = 67.5 * ratio;
 
-//Holes
-radius=2.6;
+//For aligning the curved edge...probably a better way to do this
+fudge_factor = 4.36 * ratio;
+
+inner_radius = 72.5 * ratio;
+inner_radius_bottom_left = 5 * ratio;
+inner_radius_top_right = 0.5 * ratio;
+inner_side = 28 * ratio;
+
+thickness = 4;
 
 /**********************************
 		END CONFIGURATION
 **********************************/
 union() {
-	//Make our base unit
 	difference() {
-		linear_extrude(height=thickness)
-			polygon(points=[[0,0],[side,0],[side,flat],[flat,side],[0,side]]);
-
-		//Drill the hole
-		drill(flat/2,8.5,radius,thickness+overdrill*2);
-		drill(flat+8.5,flat/2,radius,thickness+overdrill*2);
-		drill(side-8.5,flat/2,radius,thickness+overdrill*2);
-		drill(flat/2,side-8.5,radius,thickness+overdrill*2);
-
-		translate([flat+5.3,flat,-overdrill])
-			multiradiusroundedpoly([[0,0,5.3],[2.5-5.3,21.7,2.5],[21.9,2.4-5.3,2.4]],thickness+overdrill*2);
+		cube([side, side, thickness]);
+		translate([-(extrusion_width-fudge_factor),-(extrusion_width-fudge_factor),-overdrill])
+			cylinder(r=outer_radius, h=thickness+overdrill*2, $fn=100);
+			
+		//Drill the holes
+		drill(side-extrusion_width/2,side-(extrusion_width+8.5),screw_c_diameter/2,thickness+overdrill*2);
+		drill(side-extrusion_width/2,8.5,screw_c_diameter/2,thickness+overdrill*2);
+		drill(side-(extrusion_width+8.5),side-extrusion_width/2,screw_c_diameter/2,thickness+overdrill*2);
+		drill(8.5,side-extrusion_width/2,screw_c_diameter/2,thickness+overdrill*2);
+		
+		//Make our cutout
+		difference() {
+			hull() {
+				translate([side-extrusion_width-inner_radius_bottom_left,side-extrusion_width-inner_radius_bottom_left,-overdrill])
+					cylinder(r=inner_radius_bottom_left, h=thickness+overdrill*2, $fn=100);
+				translate([side-extrusion_width-(inner_side+inner_radius_bottom_left)-(inner_radius_top_right / 2),side-extrusion_width-(inner_radius_top_right / 2),-overdrill])
+					cylinder(r=inner_radius_top_right, h=thickness+overdrill*2, $fn=100);
+				translate([side-extrusion_width-(inner_radius_top_right / 2),side-extrusion_width-(inner_side+inner_radius_bottom_left)-(inner_radius_top_right / 2),-overdrill])
+					cylinder(r=inner_radius_top_right, h=thickness+overdrill*2, $fn=100);
+			}
+			translate([-(extrusion_width-fudge_factor),-(extrusion_width-fudge_factor),-overdrill])
+				cylinder(r=inner_radius, h=thickness+overdrill, $fn=100);
+		}
 	}
 }
+
+
