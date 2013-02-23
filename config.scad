@@ -1,13 +1,13 @@
 /**********************************
 	File: config.scad
-	Revision: 0.2 (1/5/2013)
+	Revision: 0.3 (2/3/2013)
 	OpenSCAD version by:
 	Michael Williams (gannon)
 	mswillia@mtu.edu
 **********************************/
 
 /**********************************
-		CONFIGURATION
+	GENERAL CONFIGURATION
 **********************************/
 //This is for the depth of holes so OpenSCAD renders correctly.
 overdrill=0.1;
@@ -49,5 +49,17 @@ screw_c_diameter=5;
 screw_d_diameter=8;
 
 /**********************************
-		END CONFIGURATION
+	AUTO CONFIGURATION
+**********************************/
+
+//Bearing block
+bearing_block_base = [linear_bearing_OD*2+5,linear_bearing_length+5,7];
+
+//X Axis
+bearing_mount_corner = 6;
+bearing_mount_base = [114,bearing_block_base[0]+3.7,6];
+bearing_mount_hole = [bearing_mount_base[0]-12,bearing_mount_base[1]-27.5,bearing_mount_base[2]+overdrill*2];
+
+/**********************************
+	END CONFIGURATION
 **********************************/
